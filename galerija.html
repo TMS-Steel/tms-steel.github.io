@@ -7,6 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+        /* Basic gallery styles */
+        .carousel {
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .carousel img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .slick-prev, .slick-next {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .slick-prev {
+            left: 10px;
+        }
+
+        .slick-next {
+            right: 10px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: #333;
+        }
+
+        .slick-dots {
+            bottom: -30px;
+        }
+    </style>
+    
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -33,17 +72,10 @@
         <!-- Main -->
         <div id="main">
             <!-- Gallery -->
-            <section class="posts">
-                <article>
-                    <a href="https://tms-steel.github.io/images/izgradnja (1).jpg" class="image fit"><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Image 1" /></a>
-                </article>
-                <article>
-                    <a href="https://tms-steel.github.io/images/izgradnja (1).jpg" class="image fit"><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Image 2" /></a>
-                </article>
-                <article>
-                    <a href="https://tms-steel.github.io/images/izgradnja (1).jpg" class="image fit"><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Image 3" /></a>
-                </article>
-                <!-- Add more images as needed -->
+            <section class="carousel">
+                <div><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Gallery Image 1" /></div>
+                <div><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Gallery Image 2" /></div>
+                <div><img src="https://tms-steel.github.io/images/izgradnja (1).jpg" alt="Gallery Image 3" /></div>
             </section>
         </div>
 
@@ -82,5 +114,22 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- Slick Carousel JS -->
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: true,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+    </script>
+    
 </body>
 </html>
