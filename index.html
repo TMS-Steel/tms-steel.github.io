@@ -1,218 +1,376 @@
 <!DOCTYPE HTML>
-<html>
-	<head>
-		<title>TMS STEEL</title>
-		<link rel="icon" type="image/x-icon" href="images/logo.ico">
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="google-site-verification" content="OTgFJKvZAsLcu-QA024vFXCwbq2sLIKk7X_bDnrDuN8" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<html lang="en">
+<head>
+    <title>TMS STEEL</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="google-site-verification" content="OTgFJKvZAsLcu-QA024vFXCwbq2sLIKk7X_bDnrDuN8" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Loading screen styles */
+        #loading {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 1);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-		<style>
-	        /* Loading screen styles */
-	        #loading {
-	            position: fixed;
-	            left: 0;
-	            top: 0;
-	            width: 100%;
-	            height: 100%;
-	            background: rgba(255, 255, 255, 1);
-	            z-index: 9999;
-	            display: flex;
-	            justify-content: center;
-	            align-items: center;
-	        }
+        .loading-content {
+            text-align: center;
+        }
 
-		.loading-content {
-		    text-align: center;
-		}
-	
-	        .spinner {
-	            border: 8px solid rgba(0, 0, 0, 0.1);
-	            border-left: 8px solid #3498db;
-	            border-radius: 50%;
-	            width: 80px;
-	            height: 80px;
-	            animation: spin 1s linear infinite;
-			margin: 0 auto; /* Center spinner horizontally */
-	        }
-	
-	        @keyframes spin {
-	            0% { transform: rotate(0deg); }
-	            100% { transform: rotate(360deg); }
-	        }
-	
-	        .message {
-	            margin-top: 10px;
-	            font-size: 18px;
-	            color: #333;
-	        }
-	    	</style>
-	</head>
+        .spinner {
+            border: 8px solid rgba(0, 0, 0, 0.1);
+            border-left: 8px solid #3498db;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto; /* Center spinner horizontally */
+        }
 
-	
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-	<body class="is-preload">
-		<!-- Loading Screen -->
-		    <div id="loading">
-			<div class="loading-content">
-			    <div class="spinner"></div>
-			    <div class="message">Učitavanje, molimo sačekajte...</div>
-			</div>
-		    </div>
-		
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+        .message {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #333;
+        }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>TMS<br>
-						STEEL</h1>
-						<p>TMS STEEL INŽENJERING</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Nastavi</a></li>
-						</ul>
-					</div>
+        /* Custom styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">TMS STEEL</a>
-					</header>
+        #header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="#main" class="scrolly">Početna</a></li>
-							<li><a href="https://tms-steel.github.io/galerija.html">Galerija</a></li>
-							<li><a href="https://tms-steel.github.io/kontakt.html" class="scrolly">Kontakt</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+        #nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px 0;
+        }
 
-				<!-- Main -->
-					<div id="main">
+        #nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<h2><a href="#">O NAMA</a></h2>
-									<p>TMS Steel Inženjering je mlada firma, osnovana 2022. godine sa sedištem u Beogradu. <br>Bavimo se izradom svih čeličnih konstrukcija, rezervoara raznih primena i cevovoda.</p>
-								</header>
-								<a href="#" class="image main"><img src="images/izgradnja (3).jpg" alt="" /></a>
-							</article>
+        #nav ul li {
+            margin: 0 15px;
+        }
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="#">Iskustvo</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/izgradnja (2).jpg" alt="" /></a>
-									<p>Pored dugogodišnjeg iskustva u porodičnom biznisu i prenetog znanja Evropskih standarda, nudimo kompletnu uslugu po sistemu "ključ u ruke".</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Više Informacija</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Posvećenost</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/izgradnja (1).jpg" alt="" /></a>
-									<p>Izuzetna posvećenost svakom segmentu od projektovanja do završetka svih radova i finalizacije radova uz praćenje i izvođenje istih u najbržim rokovima nas izdvaja. Nudimo kompletnu uslugu kao i pojedine odvojene segmente po želji klijenata.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Više Informacija</a></li>
-									</ul>
-								</article>
-							</section>
-						
-						<h2>Kontaktirajte Nas</h2>
-				                <form action="https://formspree.io/f/xyzgweaw" method="POST">
-				                    <div class="fields">
-				                        <div class="field half">
-				                            <label for="name">Ime</label>
-				                            <input type="text" name="name" id="name" required />
-				                        </div>
-				                        <div class="field half">
-				                            <label for="email">Email</label>
-				                            <input type="email" name="email" id="email" required />
-				                        </div>
-				                        <div class="field">
-				                            <label for="message">Poruka</label>
-				                            <textarea name="message" id="message" rows="6" required></textarea>
-				                        </div>
-				                    </div>
-				                    <ul class="actions">
-				                        <li><input type="submit" value="Pošalji Poruku" class="primary" /></li>
-				                    </ul>
-				                </form>
-					</div>
+        #nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2383.794957908844!2d20.57335312931238!3d44.723164114769716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a77f6fbe33cb7%3A0x65a8435f829f8a59!2sTMS%20Steel!5e0!3m2!1sen!2srs!4v1722414941292!5m2!1sen!2srs" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Adresa</h3>
-								<p>11309 Beograd<br />
-								Avalska 13, Leštane</p>
-							</section>
-							<section>
-								<h3>Kontakt Telefon</h3>
-								<p><a href="#">063/213-613</a></p>
-							</section>
-							<section>
-								<h3>E-mail</h3>
-								<p><a href="#">tmssteel@yahoo.com</a></p>
-							</section>
-							<section>
-								<h3>Društvene mreže</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
-			</div>
+        #nav ul li a:hover {
+            background-color: #555;
+        }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+        #main {
+            padding: 20px;
+        }
 
-			<script>
-		        // Define the minimum display time in milliseconds
-		        var minDisplayTime = 2000; // 1 second
-		
-		        // Track when the page has fully loaded
-		        var loadTime = new Date().getTime();
-		
-		        window.addEventListener('load', function() {
-		            var loadingScreen = document.getElementById('loading');
-		            if (loadingScreen) {
-		                var now = new Date().getTime();
-		                var elapsedTime = now - loadTime;
-		
-		                // Set a timeout to hide the loading screen
-		                var hideDelay = Math.max(minDisplayTime - elapsedTime, 0);
-		
-		                setTimeout(function() {
-		                    loadingScreen.style.display = 'none';
-		                }, hideDelay);
-		            }
-		        });
-		    </script>
-	</body>
+        #intro {
+            background: #3498db;
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .posts {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .posts article {
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: 30%;
+            transition: transform 0.3s;
+        }
+
+        .posts article:hover {
+            transform: translateY(-10px);
+        }
+
+        .posts article img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .actions .button {
+            background: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .actions .button:hover {
+            background: #2980b9;
+        }
+
+        .contact-form {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form .fields {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .contact-form .field {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .contact-form .field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form .field input,
+        .contact-form .field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form .actions {
+            text-align: center;
+        }
+
+        #footer {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #footer section {
+            margin-bottom: 20px;
+        }
+
+        #footer .icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        #footer .icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <div class="message">Učitavanje, molimo sačekajte...</div>
+        </div>
+    </div>
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro -->
+        <div id="intro">
+            <h1>TMS<br>STEEL</h1>
+            <p>TMS STEEL INŽENJERING</p>
+            <ul class="actions">
+                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Nastavi</a></li>
+            </ul>
+        </div>
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">TMS STEEL</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="#main" class="scrolly">Početna</a></li>
+                <li><a href="https://tms-steel.github.io/galerija.html">Galerija</a></li>
+                <li><a href="https://tms-steel.github.io/kontakt.html" class="scrolly">Kontakt</a></li>
+            </ul>
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <!-- Featured Post -->
+            <article class="post featured">
+                <header class="major">
+                    <h2><a href="#">O NAMA</a></h2>
+                    <p>TMS Steel Inženjering je mlada firma, osnovana 2022. godine sa sedištem u Beogradu. <br>Bavimo se izradom svih čeličnih konstrukcija, rezervoara raznih primena i cevovoda.</p>
+                </header>
+                <a href="#" class="image main"><img src="images/izgradnja (3).jpg" alt="" /></a>
+            </article>
+
+            <!-- Posts -->
+            <section class="posts">
+                <article>
+                    <header>
+                        <h2><a href="#">Iskustvo</a></h2>
+                    </header>
+                    <a href="#" class="image fit"><img src="images/izgradnja (2).jpg" alt="" /></a>
+                    <p>Pored dugogodišnjeg iskustva u porodičnom biznisu i prenetog znanja Evropskih standarda, nudimo kompletnu uslugu po sistemu "ključ u ruke".</p>
+                    <ul class="actions special">
+                        <li><a href="#" class="button">Više Informacija</a></li>
+                    </ul>
+                </article>
+                <article>
+                    <header>
+                        <h2><a href="#">Posvećenost</a></h2>
+                    </header>
+                    <a href="#" class="image fit"><img src="images/izgradnja (1).jpg" alt="" /></a>
+                    <p>Izuzetna posvećenost svakom segmentu od projektovanja do završetka svih radova i finalizacije radova uz praćenje i izvođenje istih u najbržim rokovima nas izdvaja. Nudimo kompletnu uslugu kao i pojedine odvojene segmente po želji klijenata.</p>
+                    <ul class="actions special">
+                        <li><a href="#" class="button">Više Informacija</a></li>
+                    </ul>
+                </article>
+            </section>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Kontaktirajte Nas</h2>
+                <form action="https://formspree.io/f/xyzgweaw" method="POST">
+                    <div class="fields">
+                        <div class="field half">
+                            <label for="name">Ime</label>
+                            <input type="text" name="name" id="name" required />
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="field">
+                            <label for="message">Poruka</label>
+                            <textarea name="message" id="message" rows="6" required></textarea>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Pošalji Poruku" class="primary" /></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2383.794957908844!2d20.57335312931238!3d44.723164114769716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a77f6fbe33cb7%3A0x65a8435f829f8a59!2sTMS%20Steel!5e0!3m2!1sen!2srs!4v1722414941292!5m2!1sen!2srs" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <section class="split contact">
+                <section class="alt">
+                    <h3>Adresa</h3>
+                    <p>11309 Beograd<br />Avalska 13, Leštane</p>
+                </section>
+                <section>
+                    <h3>Kontakt Telefon</h3>
+                    <p><a href="#">063/213-613</a></p>
+                </section>
+                <section>
+                    <h3>E-mail</h3>
+                    <p><a href="#">tmssteel@yahoo.com</a></p>
+                </section>
+                <section>
+                    <h3>Društvene mreže</h3>
+                    <ul class="icons alt">
+                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+            </section>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Define the minimum display time in milliseconds
+        var minDisplayTime = 2000; // 2 seconds
+
+        // Track when the page has fully loaded
+        var loadTime = new Date().getTime();
+
+        window.addEventListener('load', function() {
+            var loadingScreen = document.getElementById('loading');
+            if (loadingScreen) {
+                var now = new Date().getTime();
+                var elapsedTime = now - loadTime;
+
+                // Set a timeout to hide the loading screen
+                var hideDelay = Math.max(minDisplayTime - elapsedTime, 0);
+
+                setTimeout(function() {
+                    loadingScreen.style.display = 'none';
+                }, hideDelay);
+            }
+        });
+    </script>
+</body>
 </html>
