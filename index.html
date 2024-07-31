@@ -8,9 +8,55 @@
 		<meta name="google-site-verification" content="OTgFJKvZAsLcu-QA024vFXCwbq2sLIKk7X_bDnrDuN8" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
+		<style>
+	        /* Loading screen styles */
+	        #loading {
+	            position: fixed;
+	            left: 0;
+	            top: 0;
+	            width: 100%;
+	            height: 100%;
+	            background: #fff;
+	            z-index: 9999;
+	            display: flex;
+	            justify-content: center;
+	            align-items: center;
+	        }
+	
+	        .spinner {
+	            border: 8px solid rgba(0, 0, 0, 0.1);
+	            border-left: 8px solid #3498db;
+	            border-radius: 50%;
+	            width: 60px;
+	            height: 60px;
+	            animation: spin 1s linear infinite;
+	        }
+	
+	        @keyframes spin {
+	            0% { transform: rotate(0deg); }
+	            100% { transform: rotate(360deg); }
+	        }
+	
+	        .message {
+	            margin-top: 10px;
+	            font-size: 16px;
+	            color: #333;
+	        }
+	    	</style>
+	</head>
+
+	
+
+	<body class="is-preload">
+		<!-- Loading Screen -->
+		    <div id="loading">
+			<div>
+			    <div class="spinner"></div>
+			    <div class="message">Učitavanje, molimo sačekajte...</div>
+			</div>
+		    </div>
+		
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
@@ -141,5 +187,27 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script>
+		        // Define the minimum display time in milliseconds
+		        var minDisplayTime = 1000; // 1 second
+		
+		        // Track when the page has fully loaded
+		        var loadTime = new Date().getTime();
+		
+		        window.addEventListener('load', function() {
+		            var loadingScreen = document.getElementById('loading');
+		            if (loadingScreen) {
+		                var now = new Date().getTime();
+		                var elapsedTime = now - loadTime;
+		
+		                // Set a timeout to hide the loading screen
+		                var hideDelay = Math.max(minDisplayTime - elapsedTime, 0);
+		
+		                setTimeout(function() {
+		                    loadingScreen.style.display = 'none';
+		                }, hideDelay);
+		            }
+		        });
+		    </script>
 	</body>
 </html>
